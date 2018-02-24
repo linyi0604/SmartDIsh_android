@@ -27,6 +27,7 @@ import okhttp3.Call;
 import smartdish.com.R;
 import smartdish.com.base.bean.GoodBean;
 import smartdish.com.base.utils.MyUtils;
+import smartdish.com.cart.activity.CartActivity;
 import smartdish.com.cart.fragment.CartFragment;
 import smartdish.com.dish.adapter.DishFragmentAdapter;
 
@@ -101,17 +102,11 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
 
     }
 
-    /**
-     * Handle button click events<br />
-     * <br />
-     * Auto-created on 2018-02-18 14:45:44 by Android Layout Finder
-     * (http://www.buzzingandroid.com/tools/android-layout-finder)
-     */
     @Override
     public void onClick(View v) {
         if ( v == ibGoodInfoBack ) {    // 返回按钮
             finish();
-        } else if ( v == ibGoodInfoMore ) {
+        } else if ( v == ibGoodInfoMore ) { //点击了更多 三个...
             ll_root.setVisibility(View.VISIBLE);
         } else if ( v == btnGoodInfoAddcart ) {     // 添加购物车
             if(MyUtils.isLogin(mContext)){   // 检查是否登录过
@@ -173,7 +168,8 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             }
         }else if(v == tvGoodInfoCart){      // 查看购物车
             if(MyUtils.isLogin(mContext)){   // 检查是否登录过
-
+                Intent intent = new Intent(mContext,CartActivity.class);
+                startActivity(intent);
             }else{  // 尚未登录 跳转到登录界面
                 MyUtils.toLoginPage(mContext);
             }

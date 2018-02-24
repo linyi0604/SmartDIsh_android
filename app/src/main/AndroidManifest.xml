@@ -29,7 +29,8 @@
         <activity android:name=".base.activity.MainActivity" />
         <activity android:name=".base.activity.GoodsInfoActivity" />
         <activity android:name=".base.activity.LoginActivity" />
-        <activity android:name=".base.activity.RegisterActivity"></activity>
+        <activity android:name=".base.activity.RegisterActivity" />
+        <activity android:name=".cart.activity.CartActivity"></activity>
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
     private ImageView ivEmpty;
     private TextView tvEmptyCartTobuy;
     private LinearLayout ll_empty_shopcart;
+    private ImageButton ib_shopcart_back;
 
     private CartAdapter adapter;
 
@@ -64,7 +66,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
 
 
     private void findViews(View view) {
-
+        ib_shopcart_back = (ImageButton) view.findViewById(R.id.ib_shopcart_back);
         tvShopcartEdit = (TextView) view.findViewById(R.id.tv_shopcart_edit);
         recyclerview = (RecyclerView) view.findViewById(R.id.recyclerview);
         llCheckAll = (LinearLayout) view.findViewById(R.id.ll_check_all);
@@ -81,6 +83,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
         tvEmptyCartTobuy.setClickable(true);
 
         btnDelete.setOnClickListener(this);
+        ib_shopcart_back.setOnClickListener(this);
     }
 
     @Override
@@ -214,6 +217,18 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
             if(adapter.getItemCount()==0){
                 emptyShoppingCart();
             }
+        }else if(v == ib_shopcart_back){    // 点击了后退按钮
+            if(back != null){
+                back.clickBack();
+            }
         }
     }
+    public interface ClickBack{
+        public void clickBack();
+    }
+    public ClickBack back;
+    public void setBack(ClickBack back){
+        this.back = back;
+    }
+
 }
