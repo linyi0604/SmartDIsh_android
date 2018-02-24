@@ -1,0 +1,4 @@
+#Sat Feb 17 14:32:24 CST 2018
+base.0=D\:\\Workspaces\\Android\\SmartDish\\ScrollViewContainer\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+renamed.0=classes.dex
+file.0=D\:\\Workspaces\\Android\\SmartDish\\ScrollViewContainer\\build\\intermediates\\transforms\\dexMerger\\debug\\3\\classes.dex

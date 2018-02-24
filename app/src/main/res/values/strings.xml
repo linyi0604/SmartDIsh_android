@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">美食森林</string>
+    <!--内网 请求数据 地址-->
+    <string name="base_url">http://192.168.65.128:8000</string>
+    <string name="appUrl">/customer_user</string>
+    <!--外网 请求数据 地址-->
+    <!--<string name="base_url">http://linyi0604.imwork.net:33153</string>-->
+
+    <string name="secret_key">secret_key</string>
+    <string name="secret_value">mobile_token_123456abcdef</string>
+</resources>

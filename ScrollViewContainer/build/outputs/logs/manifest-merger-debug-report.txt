@@ -1,0 +1,143 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:17:1-30:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:20:5-22:41
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:8:9-34
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml
+application
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:11:5-25:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:24:5-28:19
+	android:label
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:14:9-41
+	android:icon
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:13:9-45
+	android:allowBackup
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:15:9-40
+activity#com.jingchen.tbviewer.MainActivity
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:16:9-24:20
+	android:label
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:18:13-45
+	android:name
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:17:13-62
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:19:13-23:29
+action#android.intent.action.MAIN
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:20:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from D:\Workspaces\Android\SmartDish\ScrollViewContainer\src\main\AndroidManifest.xml:22:27-74
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\19a806d33a450fb9d1e2a37d8893d8c7\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\05239b9b3da5c84da7b5c94bc5b06c46\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\46356eaddfdf7be15cf4299885f05233\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7e4cacfb1d55b326ffc99b31893c0cca\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\8a27ced7cd4ec435e460713a7dcbe694\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\04bfe52eaf000756e8015a4f5c7042f7\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\3cb5f1f46449ded0cacb7e490db03ef6\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7cd171f0de3f4d7f3b4fa052640b7286\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b8fd06d9ff18fbd976c1e287f5c400d2\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lenovo\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\0b8b5574630f3ab9e21a640888249796\AndroidManifest.xml:26:13-58
