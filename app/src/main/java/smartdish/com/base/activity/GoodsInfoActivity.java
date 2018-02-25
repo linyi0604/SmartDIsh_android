@@ -137,6 +137,14 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
                                         }
                                     });
 
+                                }else if("Unique".equals(response)){
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(mContext, "购物车中已经有其他餐厅的菜了，可以先收藏~下次再点餐哦~", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    return;
                                 }else{
                                     runOnUiThread(new Runnable() {
                                         @Override
@@ -154,12 +162,9 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
                 MyUtils.toLoginPage(mContext);
             }
 
-        } else if(v == tvGoodInfoCallcenter){       // 联系客服
-            if(MyUtils.isLogin(mContext)){   // 检查是否登录过
-                Toast.makeText(this,"添加购物车",Toast.LENGTH_SHORT).show();
-            }else{  // 尚未登录 跳转到登录界面
-                MyUtils.toLoginPage(mContext);
-            }
+        } else if(v == tvGoodInfoCallcenter){       // 看这家店
+            //TODO
+            Toast.makeText(this,"进入该店铺",Toast.LENGTH_SHORT).show();
         } else if(v == tvGoodInfoCollection){       // 收藏
             if(MyUtils.isLogin(mContext)){   // 检查是否登录过
                 Toast.makeText(this,"添加购物车",Toast.LENGTH_SHORT).show();

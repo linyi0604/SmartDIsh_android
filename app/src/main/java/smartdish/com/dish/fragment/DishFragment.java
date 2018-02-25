@@ -55,7 +55,8 @@ public class DishFragment extends BaseFragment {
         tv_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext,"sousuo",Toast.LENGTH_LONG).show();
+            String value = tv_search_home.getText().toString().trim();
+            Toast.makeText(mContext,value,Toast.LENGTH_SHORT).show();
             }
         });
 

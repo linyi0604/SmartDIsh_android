@@ -41,6 +41,7 @@ import smartdish.com.cart.view.NumberAddSubView;
  */
 
 public class CartFragment extends BaseFragment implements View.OnClickListener {
+    private View view;
     private TextView tvShopcartEdit;
     private RecyclerView recyclerview;
     private LinearLayout llCheckAll;
@@ -88,11 +89,9 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View initView() {
-        View view = View.inflate(mContext, R.layout.activity_shopping_cart , null);
+        view = View.inflate(mContext, R.layout.activity_shopping_cart, null);
         findViews(view);
-
         initListener();
-
         return view;
     }
 
@@ -145,11 +144,16 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
         llCheckAll.setVisibility(View.VISIBLE);
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
 
     @Override
     public void initData() {
         super.initData();
+
         // 发送请求去服务器要购物车里的数据
         String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
         String username = MyUtils.getUsername(mContext);

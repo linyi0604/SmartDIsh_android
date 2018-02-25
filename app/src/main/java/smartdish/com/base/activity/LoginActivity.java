@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
 import smartdish.com.R;
+import smartdish.com.base.bean.UserBean;
 import smartdish.com.base.utils.MyUtils;
 
 public class LoginActivity extends AppCompatActivity {
@@ -54,13 +56,27 @@ public class LoginActivity extends AppCompatActivity {
                     // 请求成功的时候
                     @Override
                     public void onResponse(final String response, int id) {
-                        if("OK".equals(response)){
+                        final UserBean userBean;
+                        try{
+                            userBean = JSON.parseObject(response,UserBean.class);
+                        }catch (final Exception e){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(mContext,e.getMessage(),Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            return;
+                        }
+
+                        if(userBean!=null){
                             //注册成功
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Boolean result = MyUtils.setLogin(mContext,username,password);
-                                    if(result){
+                                    Boolean result1 = MyUtils.setLogin(mContext,username,password);
+                                    Boolean result2 = MyUtils.updateUserInfo(mContext,password,userBean.getName(),userBean.getPhone(),userBean.getDetail());
+                                    if(result1 && result2){
                                         Toast.makeText(mContext,"登录成功！",Toast.LENGTH_LONG).show();
                                         finish();
                                     }else{

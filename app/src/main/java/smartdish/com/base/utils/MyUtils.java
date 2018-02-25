@@ -12,10 +12,13 @@ import smartdish.com.base.activity.MainActivity;
  * 该应用程序的工具类
  */
 public class MyUtils {
-    private static final String SP_NAME = "smartDish";
-    private static final String IS_LOGIN = "isLogin";
-    private static final String USERNAME = "username";
-    private static final String PASSWORD= "password";
+    public static final String SP_NAME = "smartDish";
+    public static final String IS_LOGIN = "isLogin";
+    public static final String USERNAME = "username";
+    public static final String PASSWORD= "password";
+    public static final String NAME= "name";
+    public static final String PHONE= "phone";
+    public static final String DETAIL= "detail";
 
     // 检查是否已经登录
     public static Boolean isLogin(Context mContext){
@@ -30,6 +33,30 @@ public class MyUtils {
         editor.putBoolean(IS_LOGIN,true);
         editor.putString(USERNAME,username);
         editor.putString(PASSWORD,password);
+        Boolean result = editor.commit();
+        return result;
+    }
+
+    // 更新用户信息
+    public static Boolean updateUserInfo(Context mContext, String password, String name, String phone, String detail) {
+        SharedPreferences sp = mContext.getSharedPreferences(SP_NAME,0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean(IS_LOGIN,true);
+        editor.putString(NAME,name);
+        editor.putString(PASSWORD,password);
+        editor.putString(PHONE,phone);
+        editor.putString(DETAIL,detail);
+        Boolean result = editor.commit();
+        return result;
+    }
+
+
+    // 退出登录功能
+    public static boolean logout(Context mContext){
+        SharedPreferences sp = mContext.getSharedPreferences(SP_NAME,0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean(IS_LOGIN,false);
+        editor.clear();
         Boolean result = editor.commit();
         return result;
     }
@@ -60,5 +87,7 @@ public class MyUtils {
     public static String getAppUrl(Context mContext){
         return mContext.getString(R.string.appUrl);
     }
+
+
 
 }

@@ -149,7 +149,7 @@
                 android:drawableTop="@drawable/icon_callserver_unpressed"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="联系客服"
+                android:text="看这家店"
                 android:textColor="#393b3e" />
 
             <TextView
