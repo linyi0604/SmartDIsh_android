@@ -31,7 +31,8 @@
         <activity android:name=".base.activity.LoginActivity" />
         <activity android:name=".base.activity.RegisterActivity" />
         <activity android:name=".cart.activity.CartActivity" />
-        <activity android:name=".user.activity.UserInfoActivity"></activity>
+        <activity android:name=".user.activity.UserInfoActivity" />
+        <activity android:name=".favorite.activity.FavoriteActivity"></activity>
     </application>
 
 </manifest>

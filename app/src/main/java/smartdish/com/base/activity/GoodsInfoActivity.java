@@ -3,6 +3,7 @@ package smartdish.com.base.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -86,6 +87,10 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         tvGoodInfoCart = (TextView)findViewById( R.id.tv_good_info_cart );
         btnGoodInfoAddcart = (Button)findViewById( R.id.btn_good_info_addcart );
 
+        Drawable drawable=this.getResources().getDrawable(R.drawable.good_uncollected);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        tvGoodInfoCollection.setCompoundDrawables(null,drawable,null,null);
+
         ibGoodInfoBack.setOnClickListener( this );
         ibGoodInfoMore.setOnClickListener( this );
         btnGoodInfoAddcart.setOnClickListener( this );
@@ -100,6 +105,13 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         ll_root.setOnClickListener(this);
         btn_more.setOnClickListener(this);
 
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setDataForView(currentDish);
     }
 
     @Override
@@ -156,8 +168,6 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
                                 }
                             }
                         });
-
-
             }else{  // 尚未登录 跳转到登录界面
                 MyUtils.toLoginPage(mContext);
             }
@@ -165,9 +175,53 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         } else if(v == tvGoodInfoCallcenter){       // 看这家店
             //TODO
             Toast.makeText(this,"进入该店铺",Toast.LENGTH_SHORT).show();
-        } else if(v == tvGoodInfoCollection){       // 收藏
+        } else if(v == tvGoodInfoCollection){       // 收藏 或 取消 收藏
             if(MyUtils.isLogin(mContext)){   // 检查是否登录过
-                Toast.makeText(this,"添加购物车",Toast.LENGTH_SHORT).show();
+                // 已经登陆过 添加到收藏夹当中
+                String username = MyUtils.getUsername(mContext);
+                String dish_id = currentDish.getId();
+                String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
+                OkHttpUtils.get().url(url+"/addFavorite")
+                        .addParams("username",username)
+                        .addParams("dish_id",dish_id)
+                        .build()
+                        .execute(new StringCallback() {
+                            // 请求失败的时候
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                                System.out.println(e);
+                                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            }
+                            // 请求成功的时候
+                            @Override
+                            public void onResponse(final String response, int id) {
+                                if("OK".equals(response)){
+                                    //添加购物车成功
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(mContext, "收藏成功！", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    Drawable drawable=mContext.getResources().getDrawable(R.drawable.good_collected);
+                                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                                    tvGoodInfoCollection.setCompoundDrawables(null,drawable,null,null);
+                                }else{
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(mContext,"提示:"+response,Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    return;
+                                }
+                            }
+                        });
+
+
+
+
             }else{  // 尚未登录 跳转到登录界面
                 MyUtils.toLoginPage(mContext);
             }
@@ -206,10 +260,15 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             // 向页面 设置数据
             currentDish = goodBean;
             setDataForView(goodBean);
+
+
         }
     }
     // 设置页面数据
     private void setDataForView(GoodBean goodBean) {
+        // 检查改商品是不是收藏过了
+        checkFavorite();
+
         // 设置图片
         Glide.with(this).load(this.getString(R.string.base_url)+goodBean.getImage_url()).into(ivGoodInfoImage);
         // 设置名称
@@ -245,5 +304,37 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
 
     }
 
+    // 检查改商品是不是已经被收藏过了
+    private void checkFavorite() {
+        if(!MyUtils.isLogin(mContext)){
+            return;
+        }
+        // 检查改商品是不是已经被收藏过了
+        String username = MyUtils.getUsername(mContext);
+        String dish_id = currentDish.getId();
+        String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
+        OkHttpUtils.get().url(url+"/checkFavorite")
+                .addParams("username",username)
+                .addParams("dish_id",dish_id)
+                .build()
+                .execute(new StringCallback() {
+                    // 请求失败的时候
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(e);
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                    // 请求成功的时候
+                    @Override
+                    public void onResponse(final String response, int id) {
+                        if(response.equals("true")){
+                            Drawable drawable=mContext.getResources().getDrawable(R.drawable.good_collected);
+                            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                            tvGoodInfoCollection.setCompoundDrawables(null,drawable,null,null);
+                        }
+                    }
+                });
+    }
 
 }

@@ -39,6 +39,7 @@ import smartdish.com.cart.activity.CartActivity;
 import smartdish.com.cart.adapter.CartAdapter;
 import smartdish.com.cart.bean.CartBean;
 import smartdish.com.cart.view.NumberAddSubView;
+import smartdish.com.favorite.activity.FavoriteActivity;
 import smartdish.com.user.activity.UserInfoActivity;
 
 /**
@@ -98,7 +99,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             }
         } else if( v == rl_favorite){    // 收藏
             if(MyUtils.isLogin(mContext)){
-
+                Intent intent = new Intent(mContext,FavoriteActivity.class);
+                startActivity(intent);
             }else{
                 MyUtils.toLoginPage(mContext);
             }
