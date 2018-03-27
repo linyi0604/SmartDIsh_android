@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/titlebar" />
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_below="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_default_res"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="默认"/>
+        <TextView
+            android:id="@+id/tv_sell_res"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="销量"/>
+
+        <TextView
+            android:id="@+id/tv_grade_res"
+            android:background="@color/colorPrimary"
+            android:layout_margin="1dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="评分"/>
+
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_search_item"
+        android:layout_below="@+id/ll_top"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <TextView
+        android:layout_below="@+id/ll_top"
+        android:id="@+id/tv_empty_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="没有搜索到相关餐厅哦~"
+        android:textAlignment="center"
+        android:paddingTop="50dp"
+        android:textSize="20sp"/>
+
+
+
+
+
+</RelativeLayout>

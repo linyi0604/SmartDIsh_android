@@ -32,7 +32,12 @@
         <activity android:name=".base.activity.RegisterActivity" />
         <activity android:name=".cart.activity.CartActivity" />
         <activity android:name=".user.activity.UserInfoActivity" />
-        <activity android:name=".favorite.activity.FavoriteActivity"></activity>
+        <activity android:name=".favorite.activity.FavoriteActivity" />
+        <activity android:name=".dish.activity.SearchActivity" />
+        <activity android:name=".res.activity.ResMainPageActivity" />
+        <activity android:name=".res.activity.ResDishActivity" />
+        <activity android:name=".order.activity.OrderActivity" />
+        <activity android:name=".order.activity.OrderItemInfoActivity"></activity>
     </application>
 
 </manifest>

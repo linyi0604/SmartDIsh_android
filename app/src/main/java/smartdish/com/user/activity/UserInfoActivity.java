@@ -148,8 +148,6 @@ public class UserInfoActivity extends Activity implements View.OnClickListener {
                     });
         }
 
-
-
-        }
+    }
 
 }

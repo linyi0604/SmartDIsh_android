@@ -53,6 +53,7 @@ public class MainActivity extends FragmentActivity {
                         break;
                     case R.id.rb_res:   // 点击了餐厅
                         position = 1;
+                        fragments.set(1,new ResFragment());
                         break;
                     case R.id.rb_cart:  //点击了购物车
                         position = 2;
@@ -64,6 +65,11 @@ public class MainActivity extends FragmentActivity {
                         break;
                     case R.id.rb_order: // 点击了订单
                         position = 3;
+                        if(MyUtils.isLogin(MainActivity.this)){
+                            fragments.set(3,new OrderFragment());
+                        }else{
+                            MyUtils.toLoginPage(MainActivity.this);
+                        }
                         break;
                     case R.id.rb_me:    // 点击了我
                         position = 4;

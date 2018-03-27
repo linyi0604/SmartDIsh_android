@@ -1,7 +1,7 @@
-package smartdish.com.favorite.adapter;
+package smartdish.com.res.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -13,15 +13,24 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import smartdish.com.R;
+import smartdish.com.base.activity.GoodsInfoActivity;
 import smartdish.com.base.bean.GoodBean;
+import smartdish.com.dish.adapter.DishFragmentAdapter;
 
 
-public class FavoriteAdapter extends BaseAdapter {
+public class ResDishTypeDishAdapter extends BaseAdapter {
     private Context mContext;
     private List<GoodBean> list;
-    public FavoriteAdapter(Context mContext, List<GoodBean> list) {
+    private TextView tv_empty_dish_list;
+    public ResDishTypeDishAdapter(Context mContext,List<GoodBean> list,TextView tv_empty_dish_list) {
         this.mContext = mContext;
         this.list = list;
+        this.tv_empty_dish_list = tv_empty_dish_list;
+        if(list.size()<=0){
+            tv_empty_dish_list.setVisibility(View.VISIBLE);
+        }else{
+            tv_empty_dish_list.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -43,7 +52,7 @@ public class FavoriteAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
         if(convertView == null){
-            view = View.inflate(mContext, R.layout.item_favorite_listview,null);
+            view = View.inflate(mContext, R.layout.item_res_dish_type_dish,null);
         }else{
             view = convertView;
         }
@@ -52,17 +61,28 @@ public class FavoriteAdapter extends BaseAdapter {
         return view;
     }
 
-    private void showData(GoodBean data, View view) {
+    private void showData(final GoodBean data, View view) {
         ImageView iv_image = (ImageView) view.findViewById(R.id.iv_image);
         TextView tv_name = (TextView)view.findViewById(R.id.tv_name);
         TextView tv_restaurant = (TextView) view.findViewById(R.id.tv_restaurant);
         TextView tv_detail = (TextView) view.findViewById(R.id.tv_detail);
+        TextView tv_price_grade = (TextView) view.findViewById(R.id.tv_price_grade);
+        TextView tv_sell_count = (TextView) view.findViewById(R.id.tv_sell_count);
 
         Glide.with(mContext).load(mContext.getString(R.string.base_url)+data.getImage_url()).into(iv_image);
         tv_name.setText(data.getName());
         tv_restaurant.setText(data.getRestaurant());
         tv_detail.setText(data.getDetail());
-
+        tv_price_grade.setText("￥"+data.getPrice()+"  "+data.getGrade()+"分");
+        tv_sell_count.setText("月销:"+data.getSell_count());
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+                intent.putExtra(DishFragmentAdapter.GOODBEAN,data);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
 

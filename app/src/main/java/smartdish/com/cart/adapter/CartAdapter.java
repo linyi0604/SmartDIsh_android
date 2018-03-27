@@ -3,6 +3,7 @@ package smartdish.com.cart.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ import smartdish.com.base.bean.GoodBean;
 import smartdish.com.base.utils.MyUtils;
 import smartdish.com.cart.bean.CartBean;
 import smartdish.com.cart.view.NumberAddSubView;
+import smartdish.com.order.activity.OrderActivity;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private final CheckBox cbAll;   // 删除时候checkbox
@@ -100,6 +102,43 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 notifyItemChanged(i);
             }
         }
+    }
+
+    //点击了结算按钮
+    public void order(){
+        String id_list = "";
+        for(GoodBean cur : dataList){
+            if(cur.isSelected()) {
+                id_list += cur.getId() + ",";
+            }
+        }
+
+        id_list = id_list.substring(0,id_list.lastIndexOf(","));
+        String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
+        String username = MyUtils.getUsername(mContext);
+        OkHttpUtils.get()
+                .url(url+"/addOrder")
+                .addParams("username",username)
+                .addParams("id_list",id_list)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(e);
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if(response.equals("OK")){
+                            Toast.makeText(mContext, "订单成功，请尽快到餐厅用餐~", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(mContext, OrderActivity.class);
+                            mContext.startActivity(intent);
+                        }else{
+                            Toast.makeText(mContext, "下单发生错误:"+response, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
 
@@ -222,7 +261,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     }
 
     // 删除列表中的数据
-    public void delteData() {
+    public void deleteData() {
         if(dataList!= null && dataList.size()>0){
             // 删除选中的
             List<String> deleteId = new ArrayList<>();

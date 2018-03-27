@@ -28,23 +28,27 @@
         android:id="@+id/tv_price_grade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:textSize="16sp"
         android:singleLine="true"
+        android:layout_below="@id/tv_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_image"
         android:text="￥12.00  0.0分"
         android:textColor="#db6958"/>
     <TextView
         android:id="@+id/tv_sell_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_price_grade"
+        android:layout_toRightOf="@id/iv_image"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_price_grade"
         android:textSize="16sp"
         android:singleLine="true"
         android:text="￥12"
         android:textColor="#db6958"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_restaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,11 +62,12 @@
         android:text="红星饭店"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_detail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_toRightOf="@id/iv_image"
-        android:layout_below="@id/tv_restaurant"
+        android:layout_below="@id/tv_price_grade"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="4sp"
         android:textSize="12sp"

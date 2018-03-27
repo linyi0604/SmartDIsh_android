@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_height="match_parent"
+    tools:context="smartdish.com.res.activity.ResDishActivity">
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/titlebar" />
+
+    <ListView
+        android:id="@+id/lv_menu"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/titlebar"
+        android:layout_width="100dp"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/lv_dish"
+        android:layout_toRightOf="@id/lv_menu"
+        android:layout_below="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_empty_dish_list"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/lv_menu"
+        android:layout_below="@+id/titlebar"
+        android:text="暂时没有菜品~~"
+        android:textSize="20sp" />
+
+</RelativeLayout>

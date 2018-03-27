@@ -7,21 +7,39 @@ import java.io.Serializable;
  */
 public class GoodBean implements Serializable{
 
+    private String id;
+    private String name;
     private String image_url;
     private String price;
     private String detail;
-    private String start_time;
-    private String id;
-    private String name;
-    private String price_origin;
+    private String grade;  // 评分
+    private String sell_count;    //销量
     private String restaurant_id;
     private String restaurant;
+    private String start_time;
+    private String price_origin;
     private String end_time;
     private String features;
     private boolean isSelected = true;
     private String count;
     private String event_id;
 
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getSell_count() {
+        return sell_count;
+    }
+
+    public void setSell_count(String sell_count) {
+        this.sell_count = sell_count;
+    }
 
     public String getEvent_id() {
         return event_id;
@@ -140,15 +158,17 @@ public class GoodBean implements Serializable{
     @Override
     public String toString() {
         return "GoodBean{" +
-                "image_url='" + image_url + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", image_url='" + image_url + '\'' +
                 ", price='" + price + '\'' +
                 ", detail='" + detail + '\'' +
-                ", start_time='" + start_time + '\'' +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price_origin='" + price_origin + '\'' +
+                ", grade='" + grade + '\'' +
+                ", sell_count='" + sell_count + '\'' +
                 ", restaurant_id='" + restaurant_id + '\'' +
                 ", restaurant='" + restaurant + '\'' +
+                ", start_time='" + start_time + '\'' +
+                ", price_origin='" + price_origin + '\'' +
                 ", end_time='" + end_time + '\'' +
                 ", features='" + features + '\'' +
                 ", isSelected=" + isSelected +

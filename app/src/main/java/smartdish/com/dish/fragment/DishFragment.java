@@ -1,11 +1,11 @@
 package smartdish.com.dish.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -16,6 +16,7 @@ import smartdish.com.R;
 import smartdish.com.base.BaseFragment;
 import smartdish.com.dish.adapter.DishFragmentAdapter;
 import smartdish.com.dish.bean.ResultBean;
+import smartdish.com.dish.activity.SearchActivity;
 
 /**
  * 菜品界面的fragment
@@ -55,8 +56,10 @@ public class DishFragment extends BaseFragment {
         tv_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            String value = tv_search_home.getText().toString().trim();
-            Toast.makeText(mContext,value,Toast.LENGTH_SHORT).show();
+                String value = tv_search_home.getText().toString().trim();
+                Intent intent = new Intent(mContext, SearchActivity.class);
+                intent.putExtra("key_word",value);
+                startActivity(intent);
             }
         });
 
@@ -82,9 +85,6 @@ public class DishFragment extends BaseFragment {
                     // 请求成功的时候
                     @Override
                     public void onResponse(String response, int id) {
-//                        if(response == null || response.equals("") || id!=200){
-//                            return;
-//                        }
                         ResultBean resultBean = JSON.parseObject(response,ResultBean.class);
                         if(resultBean == null){
                             // 没有数据

@@ -56,6 +56,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvEmptyCartTobuy;
     private LinearLayout ll_empty_shopcart;
     private ImageButton ib_shopcart_back;
+    private Button btn_check_out;
 
     private CartAdapter adapter;
 
@@ -81,10 +82,12 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
         ivEmpty = (ImageView) view.findViewById(R.id.iv_empty);
         tvEmptyCartTobuy = (TextView) view.findViewById(R.id.tv_empty_cart_tobuy);
         ll_empty_shopcart = (LinearLayout) view.findViewById(R.id.ll_empty_shopcart);
+        btn_check_out = (Button) view.findViewById(R.id.btn_check_out);
         tvEmptyCartTobuy.setClickable(true);
 
         btnDelete.setOnClickListener(this);
         ib_shopcart_back.setOnClickListener(this);
+        btn_check_out.setOnClickListener(this);
     }
 
     @Override
@@ -196,9 +199,21 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
             adapter = new CartAdapter(mContext,list,tvShopcartTotal,checkboxAll,cbAll);
             recyclerview.setAdapter(adapter);
             recyclerview.setLayoutManager(new LinearLayoutManager(mContext,LinearLayout.VERTICAL,false));
+            btn_check_out.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    adapter.order();
+                }
+            });
         }else{
             // 没有数据 展示空页面
             emptyShoppingCart();
+            btn_check_out.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "还没有商品哦~", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
     private void emptyShoppingCart(){
@@ -214,7 +229,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
         // 点击删除按钮
         if(v == btnDelete){
             // 删除选中
-            adapter.delteData();
+            adapter.deleteData();
             // 校验状态
             adapter.checkAllSelected();
             // 如果没有数据了 显示空数据的布局
@@ -234,5 +249,7 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
     public void setBack(ClickBack back){
         this.back = back;
     }
+
+
 
 }

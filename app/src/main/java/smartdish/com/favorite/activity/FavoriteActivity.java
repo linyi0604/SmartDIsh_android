@@ -1,10 +1,12 @@
 package smartdish.com.favorite.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -23,7 +25,7 @@ import smartdish.com.R;
 import smartdish.com.base.activity.GoodsInfoActivity;
 import smartdish.com.base.bean.GoodBean;
 import smartdish.com.base.utils.MyUtils;
-import smartdish.com.favorite.adapter.FavoriteAdapter;
+import smartdish.com.base.adapter.GoodItemAdapter;
 import smartdish.com.favorite.bean.FavoriteBean;
 
 public class FavoriteActivity extends Activity {
@@ -32,7 +34,7 @@ public class FavoriteActivity extends Activity {
     private Context mContext;
     private FavoriteBean favoriteBean;
     private TextView tv_empty_private;
-
+    private GoodItemAdapter adapter;
 
 
     @Override
@@ -59,9 +61,68 @@ public class FavoriteActivity extends Activity {
         lv_favorite_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 隐藏删除按钮
+                TextView tv_delete = view.findViewById(R.id.tv_delete);
+                tv_delete.setVisibility(View.GONE);
+                // 跳转到商品详情页面
                 Intent intent = new Intent(mContext, GoodsInfoActivity.class);
                 intent.putExtra("goodbean",favoriteBean.getList().get(position));
                 mContext.startActivity(intent);
+            }
+        });
+
+        lv_favorite_list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final TextView tv_delete = view.findViewById(R.id.tv_delete);
+                // 显示删除按钮
+                tv_delete.setVisibility(View.VISIBLE);
+                // 点击删除按钮 进行删除逻辑
+                tv_delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    // 发送网络请求 进行删除该条收藏
+                    String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
+                    String username = MyUtils.getUsername(mContext);
+                    OkHttpUtils.get()
+                            .url(url+"/deleteFavorite")
+                            .addParams("event_id",favoriteBean.getList().get(position).getEvent_id())
+                            .build()
+                            .execute(new StringCallback() {
+                                // 请求失败的时候
+                                @Override
+                                public void onError(Call call, Exception e, int id) {
+                                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                                    System.out.println(e);
+                                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+                                }
+                                // 请求成功的时候
+                                @Override
+                                public void onResponse(final String response, int id) {
+                                    if("OK".equals(response)){
+                                        favoriteBean.getList().remove(position);
+                                        adapter.notifyDataSetChanged();
+                                        tv_delete.setVisibility(View.GONE);
+                                    }else{
+                                        Toast.makeText(mContext,"发生错误："+response,Toast.LENGTH_SHORT).show();;
+                                    }
+                                }
+                            });
+                    }
+                });
+                // 3秒钟后自动隐藏删除按钮
+                @SuppressLint("HandlerLeak")
+                Handler handler = new Handler(){
+                    @Override
+                    public void handleMessage(Message msg) {
+                        super.handleMessage(msg);
+                        tv_delete.setVisibility(View.GONE);
+                        removeMessages(0);
+                        removeCallbacksAndMessages(null);
+                    }
+                };
+                handler.sendEmptyMessageDelayed(0,3000);
+                return true;
             }
         });
 
@@ -101,7 +162,8 @@ public class FavoriteActivity extends Activity {
     }
 
     private void showData(List<GoodBean> list) {
-        lv_favorite_list.setAdapter(new FavoriteAdapter(mContext,list));
+        this.adapter = new GoodItemAdapter(mContext,list);
+        lv_favorite_list.setAdapter(adapter);
 
     }
 

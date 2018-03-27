@@ -31,6 +31,7 @@ import smartdish.com.base.utils.MyUtils;
 import smartdish.com.cart.activity.CartActivity;
 import smartdish.com.cart.fragment.CartFragment;
 import smartdish.com.dish.adapter.DishFragmentAdapter;
+import smartdish.com.res.activity.ResMainPageActivity;
 
 public class GoodsInfoActivity extends Activity implements View.OnClickListener {
     private ImageButton ibGoodInfoBack;
@@ -57,12 +58,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
     private Context mContext;
 
     private GoodBean currentDish;
-    /**
-     * Find the Views in the layout<br />
-     * <br />
-     * Auto-created on 2018-02-18 14:45:44 by Android Layout Finder
-     * (http://www.buzzingandroid.com/tools/android-layout-finder)
-     */
+
     private void findViews() {
         mContext = GoodsInfoActivity.this;
         tv_good_info_restaurant = (TextView)findViewById(R.id.tv_good_info_restaurant);
@@ -173,8 +169,9 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             }
 
         } else if(v == tvGoodInfoCallcenter){       // 看这家店
-            //TODO
-            Toast.makeText(this,"进入该店铺",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(mContext, ResMainPageActivity.class);
+            intent.putExtra("res_id",goodBean.getRestaurant_id());
+            startActivity(intent);
         } else if(v == tvGoodInfoCollection){       // 收藏 或 取消 收藏
             if(MyUtils.isLogin(mContext)){   // 检查是否登录过
                 // 已经登陆过 添加到收藏夹当中
