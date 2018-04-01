@@ -69,14 +69,6 @@ public class GoodItemAdapter extends BaseAdapter {
         tv_detail.setText(data.getDetail());
         tv_price_grade.setText("￥"+data.getPrice()+"  "+data.getGrade()+"分");
         tv_sell_count.setText("月销:"+data.getSell_count());
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, GoodsInfoActivity.class);
-                intent.putExtra(DishFragmentAdapter.GOODBEAN,data);
-                mContext.startActivity(intent);
-            }
-        });
     }
 
 
