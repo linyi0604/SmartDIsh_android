@@ -380,30 +380,9 @@ public class DishFragmentAdapter extends RecyclerView.Adapter {
     public void startDishInfoActivity(String data){
         final GoodBean goodBean = JSON.parseObject(data,GoodBean.class);
         String dish_id = goodBean.getId();
-        String url = mContent.getString(R.string.base_url) + mContent.getString(R.string.appUrl);
-        if( MyUtils.getUsername(mContent).equals("")){
-            MyUtils.setUsername(mContent);
-        }
-        String username = MyUtils.getUsername(mContent);
+        Intent intent = new Intent(mContent, GoodsInfoActivity.class);
+        intent.putExtra(GOODBEAN,goodBean);
+        mContent.startActivity(intent);
 
-        OkHttpUtils.get().url(url + "/addStep")
-                .addParams("dish_id",dish_id)
-                .addParams("username",username)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        if(response.equals("OK")){
-                            Intent intent = new Intent(mContent, GoodsInfoActivity.class);
-                            intent.putExtra(GOODBEAN,goodBean);
-                            mContent.startActivity(intent);
-                        }
-                    }
-                });
     }
 }

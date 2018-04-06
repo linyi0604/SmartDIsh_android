@@ -257,9 +257,27 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             // 向页面 设置数据
             currentDish = goodBean;
             setDataForView(goodBean);
-
-
         }
+
+        addStep(goodBean.getId());
+    }
+    public void addStep(String dish_id){
+        String url = mContext.getString(R.string.base_url) + mContext.getString(R.string.appUrl);
+        if( MyUtils.getUsername(mContext).equals("")){
+            MyUtils.setUsername(mContext);
+        }
+        String username = MyUtils.getUsername(mContext);
+
+        OkHttpUtils.get().url(url + "/addStep")
+                .addParams("dish_id",dish_id)
+                .addParams("username",username)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {}
+                    @Override
+                    public void onResponse(String response, int id) {}
+                });
     }
     // 设置页面数据
     private void setDataForView(GoodBean goodBean) {
