@@ -1,5 +1,6 @@
 package smartdish.com.base.activity;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class MainActivity extends FragmentActivity {
     private RadioGroup rg_main;
     private int position = 0;
     private Fragment currentFragment; // 缓存fragment
-    private BaseFragment mContext;
+    private Context mContext;
 
 
     @Override
@@ -34,6 +35,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rg_main = findViewById(R.id.rg_main);
+        mContext = MainActivity.this;
 
         initFragment();
         // 设置radioGroup的监听

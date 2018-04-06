@@ -25,6 +25,8 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerClickListener;
 import com.youth.banner.loader.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.text.SimpleDateFormat;
@@ -32,9 +34,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import okhttp3.Call;
 import smartdish.com.R;
 import smartdish.com.base.activity.GoodsInfoActivity;
 import smartdish.com.base.bean.GoodBean;
+import smartdish.com.base.utils.MyUtils;
 import smartdish.com.dish.bean.ResultBean;
 
 public class DishFragmentAdapter extends RecyclerView.Adapter {
@@ -374,9 +378,32 @@ public class DishFragmentAdapter extends RecyclerView.Adapter {
 
     // 启动菜品详情页面
     public void startDishInfoActivity(String data){
-        GoodBean goodBean = JSON.parseObject(data,GoodBean.class);
-        Intent intent = new Intent(mContent, GoodsInfoActivity.class);
-        intent.putExtra(GOODBEAN,goodBean);
-        mContent.startActivity(intent);
+        final GoodBean goodBean = JSON.parseObject(data,GoodBean.class);
+        String dish_id = goodBean.getId();
+        String url = mContent.getString(R.string.base_url) + mContent.getString(R.string.appUrl);
+        if( MyUtils.getUsername(mContent).equals("")){
+            MyUtils.setUsername(mContent);
+        }
+        String username = MyUtils.getUsername(mContent);
+
+        OkHttpUtils.get().url(url + "/addStep")
+                .addParams("dish_id",dish_id)
+                .addParams("username",username)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if(response.equals("OK")){
+                            Intent intent = new Intent(mContent, GoodsInfoActivity.class);
+                            intent.putExtra(GOODBEAN,goodBean);
+                            mContent.startActivity(intent);
+                        }
+                    }
+                });
     }
 }

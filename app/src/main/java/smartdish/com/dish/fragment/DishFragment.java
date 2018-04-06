@@ -1,5 +1,7 @@
 package smartdish.com.dish.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import okhttp3.Call;
 import smartdish.com.R;
 import smartdish.com.base.BaseFragment;
+import smartdish.com.base.utils.MyUtils;
 import smartdish.com.dish.adapter.DishFragmentAdapter;
 import smartdish.com.dish.bean.ResultBean;
 import smartdish.com.dish.activity.SearchActivity;
@@ -29,9 +32,9 @@ public class DishFragment extends BaseFragment {
     private RecyclerView rvHome;        // 主屏幕部分recyclerView
     private DishFragmentAdapter adapter;    // 数据适配器
 
-
     @Override
     public View initView() {
+        mContext = getContext();
         View view = View.inflate(mContext, R.layout.fragment_dish,null);
         tv_search_home = (TextView)view.findViewById(R.id.tv_search_home);
         ib_top = (ImageView) view.findViewById(R.id.ib_top);
@@ -68,11 +71,13 @@ public class DishFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
-
+        if( MyUtils.getUsername(mContext).equals("")){
+            MyUtils.setUsername(mContext);
+        }
+        String username = MyUtils.getUsername(mContext);
         String url = mContext.getString(R.string.base_url)+mContext.getString(R.string.appUrl);
         OkHttpUtils.get().url( url + "/getDishPage" )
-//                .addParams("username","aaa")
-//                .addParams("password","bbb")
+                .addParams("username",username)
                 .build()
                 .execute(new StringCallback() {
                     // 请求失败的时候

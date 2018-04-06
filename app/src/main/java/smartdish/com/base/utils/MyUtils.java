@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import java.util.Date;
+
 import smartdish.com.R;
 import smartdish.com.base.activity.LoginActivity;
 import smartdish.com.base.activity.MainActivity;
@@ -89,5 +91,16 @@ public class MyUtils {
     }
 
 
-
+    public static String setUsername(Context mContext) {
+        SharedPreferences sp = mContext.getSharedPreferences(SP_NAME,0);
+        SharedPreferences.Editor editor = sp.edit();
+        String username = "notLogin_" + android.os.Build.MODEL + String.valueOf(new Date()) ;
+        editor.putString(USERNAME,username);
+        Boolean result = editor.commit();
+        if(result){
+            return username;
+        }else{
+            return "error";
+        }
+    }
 }
