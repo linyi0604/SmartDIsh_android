@@ -95,7 +95,7 @@ public class MyUtils {
     public static String setUsername(Context mContext) {
         SharedPreferences sp = mContext.getSharedPreferences(SP_NAME,0);
         SharedPreferences.Editor editor = sp.edit();
-        String username = "notLogin_" + android.os.Build.MODEL + String.valueOf(new Date()) ;
+        String username = "notLogin_" + android.os.Build.MODEL + Build.ID;
         editor.putString(USERNAME,username);
         Boolean result = editor.commit();
         if(result){

@@ -117,18 +117,20 @@ tools:context=".base.activity.GoodsInfoActivity">
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="图文详情"
+                    android:text="类似菜品"
                     android:textColor="#3c3d40"
                     android:textSize="15sp" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#ed3f3f" />
-                <WebView
+
+                <android.support.v7.widget.RecyclerView
                     android:id="@+id/wb_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </WebView>
+                    android:layout_height="wrap_content"
+                 />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

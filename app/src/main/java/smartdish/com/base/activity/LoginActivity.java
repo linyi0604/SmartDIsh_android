@@ -33,6 +33,11 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View v){
         final String username = et_username.getText().toString().trim();
         final String password = et_password.getText().toString().trim();
+        if( MyUtils.getUsername(mContext).equals("")){
+            MyUtils.setUsername(mContext);
+        }
+        String old_username = MyUtils.getUsername(mContext);
+
         if(username.equals("") || password.equals("")){
             Toast.makeText(mContext,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
             return;
@@ -44,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addParams(mContext.getString(R.string.secret_key),mContext.getString(R.string.secret_value))
                 .addParams("username",username)
                 .addParams("password",password)
+                .addParams("old_username",old_username)
                 .build()
                 .execute(new StringCallback() {
                     // 请求失败的时候

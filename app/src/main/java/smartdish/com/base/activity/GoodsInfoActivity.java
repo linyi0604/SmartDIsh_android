@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -20,17 +22,20 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
 import smartdish.com.R;
+import smartdish.com.base.adapter.RecommendFragmentAdapter;
 import smartdish.com.base.bean.GoodBean;
 import smartdish.com.base.utils.MyUtils;
 import smartdish.com.cart.activity.CartActivity;
 import smartdish.com.cart.fragment.CartFragment;
 import smartdish.com.dish.adapter.DishFragmentAdapter;
+import smartdish.com.dish.bean.ResultBean;
 import smartdish.com.res.activity.ResMainPageActivity;
 
 public class GoodsInfoActivity extends Activity implements View.OnClickListener {
@@ -53,9 +58,10 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
     private LinearLayout ll_root;
     private GoodBean goodBean;
     private TextView tv_good_info_feature;
-    private WebView wb_detail;
+    private RecyclerView wb_detail;
     private TextView tv_good_info_restaurant;
     private Context mContext;
+    private RecommendFragmentAdapter adapter;    // 数据适配器
 
     private GoodBean currentDish;
 
@@ -68,7 +74,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         btn_more      = (Button) findViewById(R.id.btn_more);
         ll_root = (LinearLayout) findViewById(R.id.ll_root);
         tv_good_info_feature = (TextView)findViewById(R.id.tv_good_info_feature);
-        wb_detail = (WebView) findViewById(R.id.wb_detail);
+        wb_detail = (RecyclerView) findViewById(R.id.wb_detail);
 
 
         ibGoodInfoBack = (ImageButton)findViewById( R.id.ib_good_info_back );
@@ -276,7 +282,18 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
                     @Override
                     public void onError(Call call, Exception e, int id) {}
                     @Override
-                    public void onResponse(String response, int id) {}
+                    public void onResponse(String response, int id) {
+                        // 内嵌推荐模块
+                        ResultBean resultBean = JSON.parseObject(response,ResultBean.class);
+                        if(resultBean == null){
+                            // 没有数据
+                        }else{
+                            adapter = new RecommendFragmentAdapter(mContext,resultBean);
+                            GridLayoutManager manager = new GridLayoutManager(mContext, 1);
+                            wb_detail.setAdapter(adapter);
+                            wb_detail.setLayoutManager(manager);
+                        }
+                    }
                 });
     }
     // 设置页面数据
@@ -293,31 +310,9 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         tvGoodInfoDesc.setText("介绍："+goodBean.getDetail());
         tv_good_info_feature.setText("特点："+goodBean.getFeatures());
 
-        // 设置内嵌浏览器控件
-        // 拿到设置对象 设置支持双击放大 支持 js  支持先缓存后网页
-        WebSettings settings = wb_detail.getSettings();
-        settings.setUseWideViewPort(true);
-        settings.setJavaScriptEnabled(true);
-        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        wb_detail.loadUrl(this.getString(R.string.base_url));
-        // 设置不适用系统浏览器 而在页面加载
-        wb_detail.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    view.loadUrl(request.getUrl().toString());
-                }
-                return true;
-            }
-        });
 
     }
+
 
     // 检查改商品是不是已经被收藏过了
     private void checkFavorite() {
