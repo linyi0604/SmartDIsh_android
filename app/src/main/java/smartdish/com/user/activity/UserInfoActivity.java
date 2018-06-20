@@ -88,6 +88,10 @@ public class UserInfoActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(mContext,"两次密码不同！",Toast.LENGTH_SHORT).show();
                 return;
             }
+            if(password.equals("")){
+                Toast.makeText(mContext,"密码不能为空！",Toast.LENGTH_SHORT).show();
+                return;
+            }
             final String name = et_name.getText().toString().trim();
             final String phone = et_phone.getText().toString().trim();
             Pattern pattern = Pattern.compile("[0-9]{1,}");
