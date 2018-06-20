@@ -62,6 +62,18 @@ public class LoginActivity extends AppCompatActivity {
                     // 请求成功的时候
                     @Override
                     public void onResponse(final String response, int id) {
+
+                        if("notOK".equals(response)){
+                            System.out.println("!!!!!!!!!!!!!!!"+response);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(mContext,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            return;
+                        }
+
                         final UserBean userBean;
                         try{
                             userBean = JSON.parseObject(response,UserBean.class);
@@ -92,22 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
 
-                        }else if("notOK".equals(response)){
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(mContext,"用户名或密码错误!",Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                            return;
-                        }else{
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(mContext,"发生了未知错误:"+response,Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                            return;
                         }
                     }
                 });
